@@ -1,0 +1,1 @@
+/<dependencies>/r harnessDependency.xml
