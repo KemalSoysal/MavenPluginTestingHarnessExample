@@ -83,10 +83,11 @@ public class MyMojoTest
       MyMojo myMojo = new MyMojo();
       Object outputDirectory = getVariableValueFromObject(myMojo, "outputDirectory");
       assertNull(String.format("outputDirectory should have not been initialized",outputDirectory), outputDirectory );
-      setVariableValueToObject(myMojo, "outputDirectory", new File("target"));
+      File newFile = new File("target");
+      setVariableValueToObject(myMojo, "outputDirectory", newFile);
       outputDirectory = getVariableValueFromObject(myMojo, "outputDirectory");
       assertNotNull( outputDirectory );
-      assertEquals(String.format("outputDirectory should have been set to %s",outputDirectory), getVariableValueFromObject(myMojo, "outputDirectory"), outputDirectory);
+      assertEquals(String.format("outputDirectory should have been set to %s", newFile), newFile, getVariableValueFromObject(myMojo, "outputDirectory"));
     }
 }
 MyMojoTest
